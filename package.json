@@ -2,19 +2,20 @@
   "name": "ts-template",
   "version": "1.0.0",
   "description": "sample typescript template",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
-    "lint": "eslint --fix",
+    "lint": "eslint ./src/**/*.ts --fix",
     "build": "tsc",
-    "test": "mocha",
-    "start": "node dist/app.js"
+    "server": "nodemon",
+    "start": "node ./dist/app.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YashKumarVerma/typescript-template.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "YashKumarVerma",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/YashKumarVerma/typescript-template/issues"
