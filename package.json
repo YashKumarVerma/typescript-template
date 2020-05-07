@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint --fix",
     "build": "tsc",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
