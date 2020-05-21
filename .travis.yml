@@ -18,7 +18,7 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t yashkumarverma/template .
-  - docker push yashkumarverma/template
+  - docker build -t yashkumarverma/typescript-template .
+  - docker push yashkumarverma/typescript-template
   - npm i -g surge
-  - surge --project ./coverage/lcov-report --domain ykv-attendance-cov.surge.sh
+  - surge --project ./coverage/lcov-report --domain ykv-template-cov.surge.sh

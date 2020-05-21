@@ -33,4 +33,3 @@ nohup.out
 out.txt
 *.info
 coverage
-codecov.yml
