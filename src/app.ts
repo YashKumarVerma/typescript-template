@@ -24,9 +24,6 @@ connect(async () => {
 // create instance of express
 const app = express()
 
-// define port to start server on
-const port = process.env.port || 3000
-
 // parse valid requests only
 app.use(
   bodyParser.urlencoded({
@@ -37,12 +34,11 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // user interaction allowed without token headers
+app.get('/', (req, res) => res.json({ error: false }))
 app.use('/user', userRoutes)
 
 // all routes next to this will require authentication
 app.use('/', authMiddleWare)
 
-// start listening on ports
-app.listen(port, () => {
-  logger.info(`Express server started at port: ${port}`)
-})
+// pass instance
+export default app
