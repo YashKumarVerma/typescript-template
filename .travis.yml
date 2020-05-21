@@ -2,6 +2,7 @@ language: node_js
 
 services:
   - docker
+  - mongodb
 
 node_js:
   - 10
@@ -12,8 +13,12 @@ install:
 script:
   - npm run lint
   - npm run build
+  - npm run coverage
+  - npm run codecov
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t yashkumarverma/project-name .
-  - docker push yashkumarverma/project-name
+  - docker build -t yashkumarverma/attendance-backend .
+  - docker push yashkumarverma/attendance-backend
+  - npm i -g surge
+  - surge --project ./coverage/lcov-report --domain ykv-attendance-cov.surge.sh
